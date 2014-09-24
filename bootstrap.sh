@@ -8,7 +8,7 @@ olddir=~/.dotfiles_old             # old dotfiles backup directory
 files="
     .zshrc
     .gitconfig
-
+    .tmux.conf
         "
 
 # create dotfiles_old in homedir
