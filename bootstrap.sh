@@ -24,7 +24,7 @@ echo "...done"
 # move any existing dotfiles in homedir to dotfiles_old directory
 echo "Moving any existing dotfiles from ~ to $olddir" 
 for file in $files; do
-  if [ ! -L ~/$file ]; then
+  if [ ! -L ~/.$file ]; then
     mv ~/.$file $olddir
   fi
 done
@@ -34,6 +34,9 @@ if [ ! "$(ls -A $olddir)" ]; then
   echo "Delete $olddir because it is empty"
   rm -r $olddir
 fi
+
+echo "Install oh-my-zsh if needed"
+wget -q  https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
 
 # Create symlinks
 echo "Creating symlinks"
