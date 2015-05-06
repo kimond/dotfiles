@@ -6,9 +6,9 @@ olddir=~/.dotfiles_old             # old dotfiles backup directory
 
 # Files list
 files="
-    .zshrc
-    .gitconfig
-    .tmux.conf
+    zshrc
+    gitconfig
+    tmux.conf
         "
 
 # create dotfiles_old in homedir
@@ -25,7 +25,7 @@ echo "...done"
 echo "Moving any existing dotfiles from ~ to $olddir" 
 for file in $files; do
   if [ ! -L ~/$file ]; then
-    mv ~/$file $olddir
+    mv ~/.$file $olddir
   fi
 done
 
@@ -39,7 +39,8 @@ fi
 echo "Creating symlinks"
 for file in $files; do
     echo "Creating symlink to $file in home directory."
-    ln -sf $dir/$file ~/$file
+    ln -sf $dir/$file ~/.$file
 done
 
+echo "Source .zshrc file"
 zsh  ~/.zshrc
