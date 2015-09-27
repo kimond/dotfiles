@@ -1,5 +1,8 @@
 [core]
 	excludesfile = /home/kdesrosiers/.gitignore_global
+    editor = vim
 [user]
 	email = kimdesro@gmail.com
 	name = Kim Desrosiers
+[push]
+    default = simple

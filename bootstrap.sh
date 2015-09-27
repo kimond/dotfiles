@@ -1,8 +1,8 @@
 #!/bin/bash
 # Variables
 
-dir=~/.dotfiles                    # dotfiles directory
-olddir=~/.dotfiles_old             # old dotfiles backup directory
+dir=$HOME/.dotfiles                    # dotfiles directory
+olddir=$HOME/.dotfiles_old             # old dotfiles backup directory
 
 # Files list
 files="
@@ -36,7 +36,12 @@ if [ ! "$(ls -A $olddir)" ]; then
 fi
 
 echo "Install oh-my-zsh if needed"
-wget -q  https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing oh-my-zsh"
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+else
+    echo "Oh-my-zsh is already installed"
+fi
 
 # Create symlinks
 echo "Creating symlinks"
@@ -46,12 +51,16 @@ for file in $files; do
 done
 
 echo "Source .zshrc file"
-zsh  ~/.zshrc
+zsh  $HOME/.zshrc
 
 echo "Configuring TMUX"
-mkdir -p ~/.tmux/plugins
-echo "Cloning tmux plugin manager"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "$HOME/.tmux/plugins" ]; then
+    mkdir -p ~/.tmux/plugins
+fi
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    echo "Cloning tmux plugin manager"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 echo "Install tmux plugings"
 tmux start-server
 tmux new-session -d
