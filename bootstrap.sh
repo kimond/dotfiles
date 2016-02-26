@@ -35,6 +35,25 @@ if [ ! "$(ls -A $olddir)" ]; then
   rm -r $olddir
 fi
 
+# Manage fish shell
+echo "Manage fish configuration"
+if [ -d "$HOME/.config/fish" ]; then
+    echo "Moving current fish config to ~/.config/fish_old"
+    mv ~/.config/fish ~/.config/fish_old
+fi
+
+echo "Create the fish directory symlink"
+ln -sf $dir/fish ~/.config/fish
+
+echo "Install fisherman if needed"
+if [ ! -d "$HOME/.config/fisherman" ]; then
+    git clone https://github.com/fisherman/fisherman $HOME/.config/fisherman
+    cd $HOME/.config/fisherman
+    make
+else
+    echo "Fisherman is already installed"
+fi
+
 echo "Install oh-my-zsh if needed"
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh"
