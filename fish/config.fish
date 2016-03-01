@@ -8,3 +8,7 @@ set -x EDITOR vim
 alias gst "git status"
 alias gba "git branch -a"
 alias gcm "git checkout master"
+
+# Set shellder config
+set -g theme_display_user yes
+set -g theme_hostname always
