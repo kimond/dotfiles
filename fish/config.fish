@@ -6,6 +6,7 @@ set -x EDITOR vim
 
 # Some git alias
 alias gst "git status"
+alias gdi "git diff"
 alias gba "git branch -a"
 alias gcm "git checkout master"
 
