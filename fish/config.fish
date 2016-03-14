@@ -4,6 +4,9 @@ source $fisher_home/config.fish
 
 set -x EDITOR vim
 
+# Remove the greeting message
+set fish_greeting
+
 # Some git alias
 alias gst "git status"
 alias gdi "git diff"
