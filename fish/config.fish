@@ -28,3 +28,12 @@ if type go >/dev/null
     set PATH $PATH $GOPATH/bin
   end
 end
+
+# Set DARTPATH
+if type dart >/dev/null
+  set -x DARTPATH ~/.pub-cache/
+  mkdir -p $DARTPATH
+  if test -d $DARTPATH/bin
+    set PATH $PATH $DARTPATH/bin
+  end
+end
