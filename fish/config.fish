@@ -15,6 +15,13 @@ alias gst "git status"
 alias gdi "git diff"
 alias gba "git branch -a"
 alias gcm "git checkout master"
+alias gcb "git checkout -b"
+alias gco "git checkout"
+alias grb "git rebase"
+alias grba "git rebase --abort"
+alias grbc "git rebase --continue"
+alias grbi "git rebase -i"
+alias grbm "git rebase master"
 
 # Set shellder config
 set -g theme_display_user yes
