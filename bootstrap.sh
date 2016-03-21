@@ -9,7 +9,8 @@ files="
     zshrc
     gitconfig
     tmux.conf
-        "
+    atom
+    "
 
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
@@ -22,7 +23,7 @@ cd $dir
 echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory
-echo "Moving any existing dotfiles from ~ to $olddir" 
+echo "Moving any existing dotfiles from ~ to $olddir"
 for file in $files; do
   if [ ! -L ~/.$file ]; then
     mv ~/.$file $olddir

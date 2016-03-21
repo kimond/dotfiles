@@ -1,0 +1,26 @@
+"*":
+  "Remote-FTP": {}
+  "autocomplete-plus": {}
+  core: {}
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "4eb442b6-83db-9c74-161e-dfef98c74d1d"
+  "merge-conflicts": {}
+  minimap: {}
+  "remote-sync": {}
+  "status-bar": {}
+  "terminal-plus":
+    core: {}
+    style:
+      fontFamily: "hack"
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  "vim-mode": {}
+  "vim-mode-plus": {}
+  "vim-surround": {}
+  wakatime:
+    apikey: "2042f6c0-338a-4946-b7cc-bbda376a3109"
+  welcome:
+    showOnStartup: false
