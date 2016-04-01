@@ -27,6 +27,11 @@ alias grbm "git rebase master"
 set -g theme_display_user yes
 set -g theme_hostname always
 
+# Set nvim alias
+if type nvim >/dev/null
+    alias vim "nvim"
+end
+
 # Set GOPATH
 if type go >/dev/null
   set -x GOPATH ~/local/go

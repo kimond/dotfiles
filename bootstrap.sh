@@ -12,6 +12,12 @@ files="
     atom
     "
 
+# Config dirs list
+configdirs="
+    fish
+    nvim
+    i3
+    "
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
@@ -36,15 +42,20 @@ if [ ! "$(ls -A $olddir)" ]; then
   rm -r $olddir
 fi
 
-# Manage fish shell
-echo "Manage fish configuration"
-if [ -d "$HOME/.config/fish" ]; then
-    echo "Moving current fish config to ~/.config/fish_old"
-    mv ~/.config/fish ~/.config/fish_old
-fi
+# Create config dir symlinks
+echo "Creating config dir symlinks"
+for configdir in $configdirs; do
+    echo "Manage $configdir configuration"
+    if [ -d "$HOME/.config/$configdir" -a ! -L "$HOME/.config/$configdir" ]; then
+        echo "Moving current $configdir config to ~/.config/$configdir""_old"
+        mv ~/.config/$configdir ~/.config/$configdir_old
+    fi
 
-echo "Create the fish directory symlink"
-ln -sf $dir/fish ~/.config/fish
+    if [ ! -L "$HOME/.config/$configdir" ]; then
+        echo "Create the fish directory symlink"
+        ln -sf $dir/$configdir ~/.config/$configdir
+    fi
+done
 
 echo "Install fisherman if needed"
 if [ ! -d "$HOME/.config/fisherman" ]; then
@@ -66,8 +77,10 @@ fi
 # Create symlinks
 echo "Creating symlinks"
 for file in $files; do
-    echo "Creating symlink to $file in home directory."
-    ln -sf $dir/$file ~/.$file
+    if [ ! -L ~/.$file ]; then
+        echo "Creating symlink to $file in home directory."
+        ln -sf $dir/$file ~/.$file
+    fi
 done
 
 echo "Source .zshrc file"
