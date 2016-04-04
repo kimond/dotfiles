@@ -3,6 +3,8 @@ fishd.*
 
 # Atom ignores
 atom/.apm
+atom/.npm
+atom/electron
 atom/.node-gyp
 atom/blob-store
 atom/compile-cache
