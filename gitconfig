@@ -1,5 +1,6 @@
 [core]
 	excludesfile = /home/kdesrosiers/.gitignore_global
+	autocrlf = input
     editor = vim
 [user]
 	email = kimdesro@gmail.com

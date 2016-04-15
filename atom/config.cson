@@ -3,10 +3,14 @@
   "autocomplete-plus": {}
   core: {}
   editor:
+    fontFamily: "Hack"
     invisibles: {}
     showIndentGuide: true
   "exception-reporting":
     userId: "4eb442b6-83db-9c74-161e-dfef98c74d1d"
+  linter: {}
+  "linter-php":
+    executablePath: "/usr/bin/php"
   "merge-conflicts": {}
   minimap: {}
   "remote-sync": {}

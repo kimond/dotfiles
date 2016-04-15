@@ -1,0 +1,14 @@
+#!/bin/sh
+
+dt0=$(date '+%a') 
+dt1=$(date '+%H')
+dt2=$(date '+%M')
+dt3=$(date '+%Y-%m-%d')
+
+echo "<span foreground='#B294BB'> </span>$dt3 <span foreground='#B294BB'> </span>$dt1<span foreground='#969896'>:</span>$dt2"
+
+case $BLOCK_BUTTON in
+    1) i3-msg exec gsimplecal ;; #left click calendar
+    2) i3-msg exec "chromium --app=https://keep.google.com" ;; #left click, google keep
+    3) i3-msg exec "chromium --app=https://calendar.google.com" ;; #right click,google calendar
+esac 
