@@ -10,6 +10,7 @@ files="
     gitconfig
     tmux.conf
     atom
+    Xresources
     "
 
 # Config dirs list

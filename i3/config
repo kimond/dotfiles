@@ -92,7 +92,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Screenshot
-bindsym Print exec gnome-screenshot --interactive
+bindsym Print exec shutter -f
+bindsym Control+Print exec shutter -s
 
 # Move whole workspace
 bindsym $mod+Control+Left move workspace to output left
@@ -146,9 +147,9 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # Pulse Audio controls
 set $Volsignal pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && $Volsignal #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && $Volsignal #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && $Volsignal # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id  amixer -q set Master 5%+ && $Volsignal #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- && $Volsignal #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle && $Volsignal # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness

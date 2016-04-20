@@ -2,6 +2,8 @@
   "Remote-FTP": {}
   "autocomplete-plus": {}
   core: {}
+  docblockr:
+    align_tags: "shallow"
   editor:
     fontFamily: "Hack"
     invisibles: {}
