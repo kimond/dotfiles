@@ -1,6 +1,6 @@
 set fisher_home ~/.config/fisherman
 set fisher_config ~/.config/fisherman
-source $fisher_home/config.fish
+source $fisher_home/fisher.fish
 
 set -x EDITOR vim
 
@@ -9,6 +9,7 @@ set fish_greeting
 
 # Paths
 test -d /usr/local/go/bin ; and set PATH /usr/local/go/bin $PATH
+test -d ~/.config/composer/vendor/bin ; and set PATH ~/.config/composer/vendor/bin $PATH
 
 # Some git alias
 alias gst "git status"
@@ -48,4 +49,9 @@ if type dart >/dev/null
   if test -d $DARTPATH/bin
     set PATH $PATH $DARTPATH/bin
   end
+end
+
+# Set ANDROID_HOME
+if test -d /opt/android-sdk
+  set ANDROID_HOME /opt/android-sdk
 end

@@ -1,7 +1,9 @@
 "*":
   "Remote-FTP": {}
+  "autocomplete-php": {}
   "autocomplete-plus": {}
-  core: {}
+  core:
+    packagesWithKeymapsDisabled: []
   docblockr:
     align_tags: "shallow"
   editor:
@@ -10,11 +12,17 @@
     showIndentGuide: true
   "exception-reporting":
     userId: "4eb442b6-83db-9c74-161e-dfef98c74d1d"
-  linter: {}
+  linter:
+    errorPanelHeight: 46
+  "linter-js-standard":
+    style: "semi-standard"
   "linter-php":
     executablePath: "/usr/bin/php"
+  "linter-phpcs":
+    tabWidth: 2
   "merge-conflicts": {}
-  minimap: {}
+  minimap:
+    autoToggle: false
   "remote-sync": {}
   "status-bar": {}
   "terminal-plus":
@@ -24,7 +32,11 @@
   "tree-view":
     hideVcsIgnoredFiles: true
   "vim-mode": {}
-  "vim-mode-plus": {}
+  "vim-mode-plus":
+    highlightSearch: true
+    incrementalSearch: true
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
   "vim-surround": {}
   wakatime:
     apikey: "2042f6c0-338a-4946-b7cc-bbda376a3109"

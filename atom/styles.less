@@ -25,6 +25,9 @@ atom-text-editor.is-focused {
 // vim mode in the status bar at the bottom
 // make it nice and big so you can see it out of the corner of your eye
 // without thinking about it.
+.status-bar-vim-mode-plus-normal,
+.status-bar-vim-mode-plus-insert,
+.status-bar-vim-mode-plus-visual,
 .status-bar-vim-mode-normal,
 .status-bar-vim-mode-insert,
 .status-bar-vim-mode-visual {
@@ -35,16 +38,19 @@ atom-text-editor.is-focused {
   text-transform: uppercase;
 }
 
+.status-bar-vim-mode-plus-normal,
 .status-bar-vim-mode-normal {
   background: @normal-bg;
   color: rgb(4, 111, 11);
 }
 
+.status-bar-vim-mode-plus-insert,
 .status-bar-vim-mode-insert {
   background: @insert-bg;
   color: white;
 }
 
+.status-bar-vim-mode-plus-visual,
 .status-bar-vim-mode-visual {
   background: @visual-bg;
   color: rgb(168, 117, 5);

@@ -249,7 +249,10 @@ assign [class="Mumble"] $workspace3
 
 assign [class="google-chrome"] $workspace2
 assign [class="Firefox"] $workspace2
-for_window [title="^.*cmus.*"], move container to workspace $workspace4
+for_window [class="xfce4-terminal" title="^.*cmus.*"], move container to workspace $workspace4
+
+# shutter window
+for_window [class="Shutter"] floating enable,move absolute center
 
 # browser pop-ups
 for_window [window_role="pop-up"] floating enable,move absolute center
