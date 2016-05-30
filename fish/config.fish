@@ -11,6 +11,9 @@ set fish_greeting
 test -d /usr/local/go/bin ; and set PATH /usr/local/go/bin $PATH
 test -d ~/.config/composer/vendor/bin ; and set PATH ~/.config/composer/vendor/bin $PATH
 
+# Tmux alias to fix color issue
+alias tmux "tmux -2"
+
 # Some git alias
 alias gst "git status"
 alias gdi "git diff"

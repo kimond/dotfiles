@@ -1,9 +1,22 @@
 "*":
   "Remote-FTP": {}
+  _dartlang:
+    _errorsInitialized: true
+    _firstRun: true
+    _version: "0.6.19"
+  "atom-mocha":
+    compiler: "ES5 (nothing)"
+  "atom-toolbar":
+    visible: false
   "autocomplete-php": {}
-  "autocomplete-plus": {}
+  "autocomplete-plus":
+    autoActivationDelay: 500
   core:
+    followSymlinks: false
     packagesWithKeymapsDisabled: []
+  dartlang:
+    sdkLocation: "/opt/dart-sdk"
+    sendUsage: false
   docblockr:
     align_tags: "shallow"
   editor:
@@ -13,7 +26,9 @@
   "exception-reporting":
     userId: "4eb442b6-83db-9c74-161e-dfef98c74d1d"
   linter:
+    displayLinterInfo: false
     errorPanelHeight: 46
+    showErrorPanel: false
   "linter-js-standard":
     style: "semi-standard"
   "linter-php":
@@ -23,6 +38,8 @@
   "merge-conflicts": {}
   minimap:
     autoToggle: false
+  "python-nosetests":
+    colorfullBadges: true
   "remote-sync": {}
   "status-bar": {}
   "terminal-plus":
