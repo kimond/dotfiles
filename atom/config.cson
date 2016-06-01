@@ -3,7 +3,7 @@
   _dartlang:
     _errorsInitialized: true
     _firstRun: true
-    _version: "0.6.19"
+    _version: "0.6.21"
   "atom-mocha":
     compiler: "ES5 (nothing)"
   "atom-toolbar":
@@ -26,9 +26,7 @@
   "exception-reporting":
     userId: "4eb442b6-83db-9c74-161e-dfef98c74d1d"
   linter:
-    displayLinterInfo: false
     errorPanelHeight: 46
-    showErrorPanel: false
   "linter-js-standard":
     style: "semi-standard"
   "linter-php":
@@ -56,6 +54,6 @@
     useSmartcaseForSearch: true
   "vim-surround": {}
   wakatime:
-    apikey: "2042f6c0-338a-4946-b7cc-bbda376a3109"
+    apikey: "Saved in your ~/.wakatime.cfg file"
   welcome:
     showOnStartup: false

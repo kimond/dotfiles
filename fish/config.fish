@@ -11,6 +11,9 @@ set fish_greeting
 test -d /usr/local/go/bin ; and set PATH /usr/local/go/bin $PATH
 test -d ~/.config/composer/vendor/bin ; and set PATH ~/.config/composer/vendor/bin $PATH
 
+# Virtualenvwrapper
+eval (python -m virtualfish)
+
 # Tmux alias to fix color issue
 alias tmux "tmux -2"
 
