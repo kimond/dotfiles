@@ -3,7 +3,7 @@
   _dartlang:
     _errorsInitialized: true
     _firstRun: true
-    _version: "0.6.21"
+    _version: "0.6.23"
   "atom-mocha":
     compiler: "ES5 (nothing)"
   "atom-toolbar":
@@ -12,11 +12,15 @@
   "autocomplete-plus":
     autoActivationDelay: 500
   core:
+    disabledPackages: [
+      "synced-sidebar"
+    ]
     followSymlinks: false
     packagesWithKeymapsDisabled: []
   dartlang:
     sdkLocation: "/opt/dart-sdk"
     sendUsage: false
+    showOutlineView: false
   docblockr:
     align_tags: "shallow"
   editor:

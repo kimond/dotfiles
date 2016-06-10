@@ -266,6 +266,7 @@ exec_always xrandr --output HDMI-2 --auto --right-of eDP-1
 exec_always --no-startup-id dunst -config ~/.config/i3/dunstrc
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+exec --no-startup-id nm-applet
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id slack
 exec --no-startup-id skype
