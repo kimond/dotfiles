@@ -3,7 +3,11 @@
   _dartlang:
     _errorsInitialized: true
     _firstRun: true
-    _version: "0.6.23"
+    _version: "0.6.32"
+  "atom-beautify":
+    general:
+      _analyticsUserId: "92f1106b-459b-443d-9781-87dc090d13cc"
+    php: {}
   "atom-mocha":
     compiler: "ES5 (nothing)"
   "atom-toolbar":
@@ -27,16 +31,18 @@
     fontFamily: "Hack"
     invisibles: {}
     showIndentGuide: true
+    tabType: "soft"
   "exception-reporting":
     userId: "4eb442b6-83db-9c74-161e-dfef98c74d1d"
   linter:
-    errorPanelHeight: 46
+    errorPanelHeight: 52
   "linter-js-standard":
     style: "semi-standard"
   "linter-php":
     executablePath: "/usr/bin/php"
   "linter-phpcs":
-    tabWidth: 2
+    tabWidth: 4
+  "linter-phpmd": {}
   "merge-conflicts": {}
   minimap:
     autoToggle: false
@@ -48,8 +54,7 @@
     core: {}
     style:
       fontFamily: "hack"
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
   "vim-mode": {}
   "vim-mode-plus":
     highlightSearch: true
@@ -59,5 +64,10 @@
   "vim-surround": {}
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
+  "wakatime-hidden":
+    lastInit: 1470696305
   welcome:
     showOnStartup: false
+".html.php.text":
+  editor:
+    tabLength: 4

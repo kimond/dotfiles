@@ -188,7 +188,6 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
 set $Locker i3lock-wrapper && sleep 1
@@ -206,8 +205,20 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+m mode "$mode_system"
+
+# Manual management of external displays
+# Set the shortcuts and what they do
+set $mode_display Ext Screen (h) HDMI ON, (y) HDMI OFF
+mode "$mode_display" {
+    bindsym h exec --no-startup-id xrandr --output HDMI-2 --auto --right-of eDP-1, mode "default"
+    bindsym y exec --no-startup-id xrandr --output HDMI-2 --auto --off, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+x mode "$mode_display"
 
 ###########################
 # Bindings for apps
@@ -250,7 +261,6 @@ assign [class="Mumble"] $workspace3
 
 assign [class="google-chrome"] $workspace2
 assign [class="Firefox"] $workspace2
-for_window [class="xfce4-terminal" title="^.*cmus.*"], move container to workspace $workspace4
 
 # shutter window
 for_window [class="Shutter"] floating enable,move absolute center
@@ -270,4 +280,3 @@ exec --no-startup-id nm-applet
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id slack
 exec --no-startup-id skype
-exec --no-startup-id xfce4-terminal -e cmus

@@ -10,6 +10,7 @@ set fish_greeting
 # Paths
 test -d /usr/local/go/bin ; and set PATH /usr/local/go/bin $PATH
 test -d ~/.config/composer/vendor/bin ; and set PATH ~/.config/composer/vendor/bin $PATH
+test -d ~/.composer/vendor/bin ; and set PATH ~/.composer/vendor/bin $PATH
 
 # Virtualenvwrapper
 eval (python -m virtualfish)
