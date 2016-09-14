@@ -153,8 +153,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- && $V
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle && $Volsignal # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec ~/.config/i3/toggletouchpad.sh # toggle touchpad
@@ -272,7 +272,6 @@ for_window [window_role="pop-up"] floating enable,move absolute center
 # Autostart
 #########################
 exec_always --no-startup-id xrandr --output eDP-1 --primary
-exec_always xrandr --output HDMI-2 --auto --right-of eDP-1
 exec_always --no-startup-id dunst -config ~/.config/i3/dunstrc
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
