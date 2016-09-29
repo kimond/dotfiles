@@ -11,6 +11,7 @@ files="
     tmux.conf
     atom
     Xresources
+    gitignore_global
     "
 
 # Config dirs list
