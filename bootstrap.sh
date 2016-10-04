@@ -12,6 +12,7 @@ files="
     atom
     Xresources
     gitignore_global
+    zpreztorc
     "
 
 # Config dirs list
@@ -68,12 +69,12 @@ else
     echo "Fisherman is already installed"
 fi
 
-echo "Install oh-my-zsh if needed"
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing oh-my-zsh"
-    git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+echo "Install Prezto if needed"
+if [ ! -d "$HOME/.zprezto" ]; then
+    echo "Installing Prezto"
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 else
-    echo "Oh-my-zsh is already installed"
+    echo "Prezto is already installed"
 fi
 
 # Create symlinks

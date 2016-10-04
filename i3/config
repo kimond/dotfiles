@@ -278,4 +278,3 @@ exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id slack
-exec --no-startup-id skype

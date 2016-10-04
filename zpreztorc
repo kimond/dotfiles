@@ -1,0 +1,28 @@
+# Set the Prezto modules to load (browse modules).
+# The order matters.
+zstyle ':prezto:load' pmodule \
+  'environment'\
+  'terminal'\
+  'history'\
+  'directory' \
+  'utility' \
+  'completion' \
+  'git' \
+  'python'\
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'autosuggestions' \
+#  'prompt' \
+
+zstyle ':prezto:*:*' color 'yes'
+
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'root'
+  #'cursor' \
+
+# %v - virtualenv name.
+zstyle ':prezto:module:python:info:virtualenv' format 'virtualenv:%v'
+

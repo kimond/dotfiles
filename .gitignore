@@ -1,7 +1,10 @@
+# Fish
 fish_history
+fish/completions/fisher.fish
+fish/functions/fish_prompt.fish
 fishd.*
 
-# Atom ignores
+# Atom
 atom/.apm
 atom/.npm
 atom/electron
