@@ -11,14 +11,14 @@ export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:
 if [[ -d "/usr/local/go/bin" ]]; then
 	export PATH=$PATH:"/usr/local/go/bin"
 fi
-if [[ -d "~/.config/composer/vendor/bin" ]]; then
-	export PATH=$PATH:"~/.config/composer/vendor/bin"
+if [[ -d "$HOME/.config/composer/vendor/bin" ]]; then
+	export PATH=$PATH:"$HOME/.config/composer/vendor/bin"
 fi
-if [[ -d "~/.composer/vendor/bin" ]]; then
-	export PATH=$PATH:"~/.composer/vendor/bin"
+if [[ -d "$HOME/.composer/vendor/bin" ]]; then
+	export PATH=$PATH:"$HOME/.composer/vendor/bin"
 fi
-if [[ -d "~/.gem/ruby/2.3.0/bin" ]]; then
-	export PATH=$PATH:"~/.gem/ruby/2.3.0/bin"
+if [[ -d "$HOME/.gem/ruby/2.3.0/bin" ]]; then
+	export PATH=$PATH:"$HOME/.gem/ruby/2.3.0/bin"
 fi
 
 
