@@ -107,6 +107,7 @@ set $workspace2 "2: Browser "
 set $workspace3 "3: Social "
 set $workspace4 "4: Music "
 set $workspace5 "5: Files "
+set $workspace6 "6: "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -114,7 +115,7 @@ bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace $workspace6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -126,7 +127,7 @@ bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace $workspace6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
@@ -228,6 +229,13 @@ bindsym $mod+Shift+n exec --no-startup-id nautilus
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+#Set colors
+set $bg-color #552e5c
+set $inactive-bg-color #333333
+set $text-color #f3f4f5
+set $inactive-text-color #888888
+
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         position top
@@ -235,22 +243,22 @@ bar {
         tray_padding 3
         font pango:hack 10
         colors {
-                separator           #926292
-                background          #282a2e
-                statusline          #c5c8c6
-                focused_workspace  #926292 #644364 #ffffff
-                active_workspace   #333333 #5f676a #ffffff
-                inactive_workspace #333333 #222222 #888888
-                urgent_workspace   #2f343a #900000 #ffffff
+                separator          #80699f
+                background         #282a2e
+                statusline         #c5c8c6
+                focused_workspace  $bg-color 	      $bg-color  	 $text-color
+                active_workspace   $bg-color 	      $bg-color          $text-color
+                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+                urgent_workspace   #2f343a 	      #900000 	         #ffffff
         }
 }
 
 # $i3-theme-window
-# class                 border  backgr. text    indicator
-client.focused          #926292 #644364 #ffffff #906090
-client.focused_inactive #333333 #5f676a #ffffff #484e50
-client.unfocused        #333333 #222222 #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
+# class                 border             backgr.            text                  indicator
+client.focused          $bg-color          $bg-color          $text-color           #906090
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #484e50
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  #292d2e
+client.urgent           #2f343a            #900000            #ffffff #900000
 
 ###########################
 # Assignments

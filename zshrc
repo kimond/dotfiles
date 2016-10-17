@@ -61,6 +61,10 @@ source ~/.dotfiles/zsh/shellder.zsh-theme
 # DART OPTIONS
 export PATH=$PATH:~/.pub-cache/bin
 
+# GO OPTIONS
+export GOPATH=$HOME/local/go
+export PATH=$PATH:$GOPATH/bin
+
 # Set ANDROID_HOME
 if [[ -d "/opt/android-sdk" ]]; then
 	export ANDROID_HOME="/opt/android-sdk"
