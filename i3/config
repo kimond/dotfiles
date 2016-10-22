@@ -267,7 +267,7 @@ assign [class="Slack"] $workspace3
 assign [class="Skype"] $workspace3
 assign [class="Mumble"] $workspace3
 
-assign [class="google-chrome"] $workspace2
+assign [class="Google-chrome"] $workspace2
 assign [class="Firefox"] $workspace2
 
 # shutter window
@@ -275,6 +275,7 @@ for_window [class="Shutter"] floating enable,move absolute center
 
 # browser pop-ups
 for_window [window_role="pop-up"] floating enable,move absolute center
+for_window [window_role="task_dialog"] floating enable,move absolute center
 
 #########################
 # Autostart
