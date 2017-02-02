@@ -212,8 +212,8 @@ bindsym $mod+m mode "$mode_system"
 # Set the shortcuts and what they do
 set $mode_display Ext Screen (h) HDMI ON, (y) HDMI OFF
 mode "$mode_display" {
-    bindsym h exec --no-startup-id xrandr --output HDMI-2 --auto --right-of eDP-1, mode "default"
-    bindsym y exec --no-startup-id xrandr --output HDMI-2 --auto --off, mode "default"
+    bindsym h exec --no-startup-id xrandr --output HDMI2 --auto --right-of eDP1, mode "default"
+    bindsym y exec --no-startup-id xrandr --output HDMI2 --auto --off, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -236,22 +236,22 @@ set $inactive-bg-color #333333
 set $text-color #f3f4f5
 set $inactive-text-color #888888
 
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        position top
-        tray_output primary
-        tray_padding 3
-        font pango:hack 10
-        colors {
-                separator          #80699f
-                background         #282a2e
-                statusline         #c5c8c6
-                focused_workspace  $bg-color 	      $bg-color  	 $text-color
-                active_workspace   $bg-color 	      $bg-color          $text-color
-                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-                urgent_workspace   #2f343a 	      #900000 	         #ffffff
-        }
-}
+# bar {
+#         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#         position top
+#         tray_output primary
+#         tray_padding 3
+#         font pango:hack 10
+#         colors {
+#                 separator          #80699f
+#                 background         #282a2e
+#                 statusline         #c5c8c6
+#                 focused_workspace  $bg-color 	      $bg-color  	 $text-color
+#                 active_workspace   $bg-color 	      $bg-color          $text-color
+#                 inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#                 urgent_workspace   #2f343a 	      #900000 	         #ffffff
+#         }
+# }
 
 # $i3-theme-window
 # class                 border             backgr.            text                  indicator
@@ -280,10 +280,12 @@ for_window [window_role="task_dialog"] floating enable,move absolute center
 #########################
 # Autostart
 #########################
-exec_always --no-startup-id xrandr --output eDP-1 --primary
+exec_always --no-startup-id xrandr --output eDP1 --primary
 exec_always --no-startup-id dunst -config ~/.config/i3/dunstrc
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id slack
+exec --no-startup-id redshift-gtk
+exec_always --no-startup-id ~/.config/i3/polybar-launch.sh
