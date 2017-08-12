@@ -23,6 +23,13 @@ fi
 if [[ -d "$HOME/.gem/ruby/2.3.0/bin" ]]; then
 	export PATH=$PATH:"$HOME/.gem/ruby/2.3.0/bin"
 fi
+if [[ -d "$HOME/.anaconda3" ]]; then
+    export PATH=$PATH:"$HOME/.anaconda3/bin"
+fi
+
+# Cuda
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64"
+export CUDA_HOME=/opt/cuda/
 
 
 # You may need to manually set your language environment
@@ -46,6 +53,7 @@ alias gst="git status"
 alias gdi="git diff"
 alias gda="git branch -a"
 alias gcm="git checkout master"
+alias dkc="docker-compose"
 
 # 256 color terminal
 export TERM="screen-256color"

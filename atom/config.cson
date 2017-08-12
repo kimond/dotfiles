@@ -21,6 +21,7 @@
     ]
     followSymlinks: false
     packagesWithKeymapsDisabled: []
+    telemetryConsent: "no"
   dartlang:
     sdkLocation: "/opt/dart-sdk"
     sendUsage: false
@@ -65,7 +66,7 @@
   wakatime:
     apikey: "Saved in your ~/.wakatime.cfg file"
   "wakatime-hidden":
-    lastInit: 1489583880
+    lastInit: 1499864113
   welcome:
     showOnStartup: false
 ".html.php.text":
