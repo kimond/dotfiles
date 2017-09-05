@@ -279,6 +279,8 @@ assign [class="Mumble"] $workspace3
 assign [class="Google-chrome"] $workspace2
 assign [class="Firefox"] $workspace2
 
+assign [class="jetbrains-idea"] $workspace1
+
 # shutter window
 for_window [class="Shutter"] floating enable,move absolute center
 
@@ -297,4 +299,5 @@ exec --no-startup-id nm-applet
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id slack
 exec --no-startup-id redshift-gtk
+exec --no-startup-id i3-msg 'workspace number $workspace4; exec i3-sensible-terminal -e pulsemixer'
 exec_always --no-startup-id ~/.config/i3/polybar-launch.sh
