@@ -16,10 +16,11 @@ files="
     "
 
 # Config dirs list
-configdirs="
+config_files="
     fish
     nvim
     i3
+    compton.conf
     "
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
@@ -47,16 +48,16 @@ fi
 
 # Create config dir symlinks
 echo "Creating config dir symlinks"
-for configdir in $configdirs; do
-    echo "Manage $configdir configuration"
-    if [ -d "$HOME/.config/$configdir" -a ! -L "$HOME/.config/$configdir" ]; then
-        echo "Moving current $configdir config to ~/.config/$configdir""_old"
-        mv ~/.config/$configdir ~/.config/$configdir_old
+for config_file in $config_files; do
+    echo "Manage $config_file configuration"
+    if [ -d "$HOME/.config/$config_file" -a ! -L "$HOME/.config/$config_file" ]; then
+        echo "Moving current $config_file config to ~/.config/$config_file""_old"
+        mv ~/.config/$config_file ~/.config/$config_file_old
     fi
 
-    if [ ! -L "$HOME/.config/$configdir" ]; then
-        echo "Create the fish directory symlink"
-        ln -sf $dir/$configdir ~/.config/$configdir
+    if [ ! -L "$HOME/.config/$config_file" ]; then
+        echo "Create the config or file  directory symlink"
+        ln -sf $dir/$config_file ~/.config/$config_file
     fi
 done
 
