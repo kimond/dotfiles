@@ -21,6 +21,9 @@
     show_indicators = yes
     dmenu = /usr/bin/dmenu -p dunst:
     browser = /usr/bin/google-chrome-stable
+    icon_position = left
+    max_icon_size = 32
+    icon_folders = /usr/share/icons/Arc/status/16/:/usr/share/icons/Arc/devices/16/
 
 
 [frame]
@@ -48,3 +51,4 @@
     foreground = "#000000"
     timeout = 0
 
+# vim: ft=cfg
