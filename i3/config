@@ -200,7 +200,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-set $Locker i3lock-wrapper && sleep 1
+set $Locker i3lock --blur 3 --clock && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
