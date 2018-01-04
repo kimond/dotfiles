@@ -108,7 +108,7 @@ bindsym $mod+Control+Right move workspace to output right
 ##############################
 set $workspace1 "1: Dev "
 set $workspace2 "2: Browser "
-set $workspace3 "3: Social "
+set $workspace3 "3: Social "
 set $workspace4 "4: Music "
 set $workspace5 "5: Files "
 set $workspace6 "6: "
