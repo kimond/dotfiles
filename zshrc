@@ -20,6 +20,9 @@ fi
 if [[ -d "$HOME/.composer/vendor/bin" ]]; then
 	export PATH=$PATH:"$HOME/.composer/vendor/bin"
 fi
+if [[ -d "$HOME/.cargo/bin" ]]; then
+	export PATH=$PATH:"$HOME/.cargo/bin"
+fi
 if [[ -d "$HOME/.gem/ruby/2.3.0/bin" ]]; then
 	export PATH=$PATH:"$HOME/.gem/ruby/2.3.0/bin"
 fi
