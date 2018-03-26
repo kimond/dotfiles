@@ -202,11 +202,12 @@ bindsym $mod+r mode "resize"
 
 set $Locker i3lock --blur 3 --clock && sleep 1
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown (v) Fast suspend
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym v exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
@@ -295,7 +296,7 @@ exec --no-startup-id compton
 exec_always --no-startup-id xrandr --output $mainDisplay --primary
 exec_always --no-startup-id dunst -config ~/.config/i3/dunstrc
 exec_always --no-startup-id nitrogen --restore
-exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id /usr/lib/gsd-xsettings
 exec --no-startup-id nm-applet
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id slack
