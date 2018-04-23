@@ -23,6 +23,9 @@ fi
 if [[ -d "$HOME/.cargo/bin" ]]; then
 	export PATH=$PATH:"$HOME/.cargo/bin"
 fi
+if [[ -d "$HOME/.yarn/bin" ]]; then
+	export PATH=$PATH:"$HOME/.yarn/bin"
+fi
 if [[ -d "$HOME/.gem/ruby/2.3.0/bin" ]]; then
 	export PATH=$PATH:"$HOME/.gem/ruby/2.3.0/bin"
 fi
@@ -83,3 +86,9 @@ export PATH=$PATH:$GOPATH/bin
 if [[ -d "/opt/android-sdk" ]]; then
 	export ANDROID_HOME="/opt/android-sdk"
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/local/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/local/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/local/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/local/google-cloud-sdk/completion.zsh.inc"; fi
