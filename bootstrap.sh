@@ -21,6 +21,7 @@ config_files="
     nvim
     i3
     compton.conf
+    rofi
     "
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
