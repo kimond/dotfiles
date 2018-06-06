@@ -13,6 +13,7 @@ files="
     Xresources
     gitignore_global
     zpreztorc
+    xmonad
     "
 
 # Config dirs list
