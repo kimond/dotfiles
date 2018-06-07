@@ -19,6 +19,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.ManageDocks             -- avoid xmobar
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName -- Bug with Java/Swing apps
 import XMonad.Hooks.UrgencyHook
 
 import XMonad.Layout.Fullscreen
@@ -51,14 +52,12 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.WorkspaceCompare         -- custom WS functions filtering NSP
 
 main = do
-    xmproc <- spawnPipe myStatusBar
-
     xmonad
         $ addDescrKeys' ((myModMask, xK_F1), showKeybindings) myKeys
         $ ewmh
-        $ myConfig xmproc
+        $ myConfig
 
-myConfig p = def
+myConfig = def
     { borderWidth = border
     , normalBorderColor = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
@@ -98,7 +97,7 @@ myBrowser = "google-chrome-stable"
 myBrowserClass      = "Google-chrome-stable"
 myStatusBar = "~/.xmonad/polybar-launch.sh"
 myRunLauncher = "rofi -show run"
-myLauncher = "rofi -dmenu -i -p 'apps'"
+myLauncher = "rofi -show drun"
 
 ---------
 -- Theme
@@ -202,6 +201,7 @@ myKeys conf = let
     , ("M-S-e" , addName "Quit XMonad"                  $ confirmPrompt hotPromptTheme "Quit XMonad" $ io (exitWith ExitSuccess))
     , ("M-x"   , addName "Lock screen"                  $ spawn "xset s activate")
     , ("M-<F4>", addName "Print Screen"                 $ return () )
+    , ("M-M1-v", addName "Lock"                 $ spawn "systemctl suspend")
     , ("<XF86MonBrightnessUp>", addName "Brightness up" $ spawn "light -A 5")
     , ("<XF86MonBrightnessDown>", addName "Brightness down" $ spawn "light -U 5")
   --, ("M-F1"  , addName "Show Keybindings"             $ return ())
@@ -245,10 +245,6 @@ myKeys conf = let
     -- If following is run on a floating window, the sequence first tiles it.
     -- Not perfect, but works.
     , ("M-f"       , addName "Fullscreen"  $ sequence_ [ (withFocused $ windows . W.sink) , (sendMessage $ XMonad.Layout.MultiToggle.Toggle FULL) ])
-    , ("C-S-h"     , addName "Ctrl-h passthrough"          $ P.sendKey controlMask xK_h)
-    , ("C-S-j"     , addName "Ctrl-j passthrough"          $ P.sendKey controlMask xK_j)
-    , ("C-S-k"     , addName "Ctrl-k passthrough"          $ P.sendKey controlMask xK_k)
-    , ("C-S-l"     , addName "Ctrl-l passthrough"          $ P.sendKey controlMask xK_l)
     ]
 
 ------------------------------------------------------------------------}}}
@@ -256,11 +252,14 @@ myKeys conf = let
 ---------------------------------------------------------------------------
 
 myStartupHook = do
+    setWMName "LG3D"
     spawnOnce "compton"
     spawnOnce "redshift-gtk"
+    spawnOnce "nm-applet"
     spawn "dunst -config ~/.config/i3/dunstrc"
     spawn "nitrogen --restore"
     spawn "/usr/lib/gsd-xsettings"
+    spawn myStatusBar
     setDefaultCursor xC_left_ptr
 
 --------------
@@ -282,6 +281,7 @@ myManageHook =
             , className =? "Google-chrome" --> doShift (wsBrowser)
             , className =? "Slack" --> doShift (wsSocial)
             , className =? "Mumble" --> doShift (wsSocial)
+            , className =? "Shutter" --> doFloat
              ]
 
 ---------------------------------------------------------------------------
