@@ -7,6 +7,7 @@ import qualified XMonad.StackSet as W
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.WindowGo
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName -- Bug with Java/Swing apps
 import XMonad.Hooks.UrgencyHook
@@ -43,7 +44,6 @@ myConfig = def
     , manageHook = myManageHook
     , handleEventHook = myHandleEventHook
     , layoutHook = myLayoutHook
-    , logHook = ewmhDesktopsLogHook
     , startupHook = myStartupHook
     , terminal = myTerminal
     , workspaces = myWorkspaces
@@ -59,7 +59,7 @@ wsSocial = "Social \xf086"
 wsMusic = "Music \xf144"
 wsFile = "File \xf15b"
 wsMisc = "Misc"
-wsGame = "Game \xff11b"
+wsGame = "7"
 wsMisc2 = "8"
 wsMisc3 = "9"
 
@@ -96,7 +96,7 @@ prompt = 20
 myNormalBorderColor     = "#2d2948"
 myFocusedBorderColor    = "#6d0569"
 
-myFont      = "-*-hack*-*-*-*-160-*-*-*-*-*-*"
+myFont      = "xft:Hack 9"
 
 myPromptTheme = def
     { font                  = myFont
