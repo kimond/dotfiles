@@ -150,8 +150,10 @@ myKeys conf = let
     subKeys "System"
     [ ("M-S-z" , addName "Restart XMonad"               $ spawn "xmonad --restart")
     , ("M-C-z" , addName "Rebuild & restart XMonad"     $ spawn "xmonad --recompile && xmonad --restart")
+    , ("M-<F4>" , addName "Power menu"                  $ spawn "~/.dotfiles/bin/rofi-logout")
     , ("M-S-<F4>" , addName "Quit XMonad"                  $ confirmPrompt hotPromptTheme "Quit XMonad" $ io (exitWith ExitSuccess))
     , ("M-M1-v", addName "Lock"                 $ spawn "systemctl suspend")
+    , ("M-S-x", addName "Xrandr"                 $ spawn "~/.dotfiles/bin/rofi-xrandr")
     , ("<XF86MonBrightnessUp>", addName "Brightness up" $ spawn "light -A 5")
     , ("<XF86MonBrightnessDown>", addName "Brightness down" $ spawn "light -U 5")
     , ("<XF86AudioRaiseVolume>", addName "Volume up" $ spawn "amixer -q set Master 5%+")

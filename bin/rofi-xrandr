@@ -1,0 +1,15 @@
+#!/bin/bash
+# logout dialog
+
+cmd=$(echo -e "Single\nDouble\nTriple" | rofi -width 350 -dmenu -p system:)
+case $cmd in
+    Single)
+        xrandr --output HDMI-2 --auto --off
+        ;;
+    Double)
+        xrandr --output HDMI-2 --auto --right-of eDP-1
+        ;;
+    Triple)
+        echo "test"
+        ;;
+esac
