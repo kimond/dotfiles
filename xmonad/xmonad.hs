@@ -116,12 +116,24 @@ hotPromptTheme = myPromptTheme
     , position              = Top
     }
 
+tabConfig = def {
+    activeBorderColor = myFocusedBorderColor,
+    activeTextColor = "#fcf4fa",
+    activeColor = "#221530",
+    inactiveBorderColor = myNormalBorderColor,
+    inactiveTextColor = "#c5c6c8",
+    inactiveColor = "#13131e"
+}
+
 ----------
 -- Layout
 ----------
 
 myLayoutHook = avoidStruts 
-    $ mouseResizableTile{draggerType = BordersDragger} ||| layoutHook defaultConfig
+    $ mouseResizableTile{draggerType = BordersDragger} ||| (
+                tabbed shrinkText tabConfig |||
+                Full
+            )
 
 ------------
 -- Binding
