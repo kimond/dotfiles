@@ -166,6 +166,7 @@ myKeys conf = let
     , ("M-S-<F4>" , addName "Quit XMonad"                  $ confirmPrompt hotPromptTheme "Quit XMonad" $ io (exitWith ExitSuccess))
     , ("M-M1-v", addName "Lock"                 $ spawn "systemctl suspend")
     , ("M-S-x", addName "Xrandr"                 $ spawn "~/.dotfiles/bin/rofi-xrandr")
+    , ("M-S-l", addName "Lock"                 $ spawn "physlock")
     , ("<XF86MonBrightnessUp>", addName "Brightness up" $ spawn "light -A 5")
     , ("<XF86MonBrightnessDown>", addName "Brightness down" $ spawn "light -U 5")
     , ("<XF86AudioRaiseVolume>", addName "Volume up" $ spawn "amixer -q set Master 5%+")
