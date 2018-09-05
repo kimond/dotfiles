@@ -188,8 +188,8 @@ myKeys conf = let
     , ("M1-<Tab>" , addName "Rofi window" $ spawn "rofi -show window")
     , ("M-<Return>" , addName "Terminal" $ spawn myTerminal)
     , ("M-S-n", addName "Nautilus" $ spawn "nautilus")
-    , ("<Print>", addName "Screenshot" $ spawn "shutter -f")
-    , ("C-<Print>", addName "Screenshot selection" $ spawn "shutter -s")
+    , ("<Print>", addName "Screenshot" $ spawn "flameshot full -p ~/Pictures/screenshots")
+    , ("C-<Print>", addName "Screenshot selection" $ spawn "flameshot gui -p ~/Pictures/screenshots")
     ]
 
 ------------------------------------------------------------------------}}}
