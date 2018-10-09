@@ -14,8 +14,8 @@ fi
 if [[ -d "/usr/local/go/bin" ]]; then
 	export PATH=$PATH:"/usr/local/go/bin"
 fi
-if [[ -d "$HOME/local/flutter/bin" ]]; then
-	export PATH=$PATH:"$HOME/local/flutter/bin"
+if [[ -d "$HOME/development/flutter/bin" ]]; then
+	export PATH=$PATH:"$HOME/development/flutter/bin"
 fi
 if [[ -d "$HOME/.config/composer/vendor/bin" ]]; then
 	export PATH=$PATH:"$HOME/.config/composer/vendor/bin"

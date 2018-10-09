@@ -12,9 +12,8 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName -- Bug with Java/Swing apps
 import XMonad.Hooks.UrgencyHook
 
+import XMonad.Layout.Decoration
 import XMonad.Layout.Fullscreen
-import XMonad.Layout.MultiToggle
-import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing                -- this makes smart space around windows
 import XMonad.Layout.ToggleLayouts          -- Full window at any time
@@ -96,7 +95,7 @@ prompt = 20
 myNormalBorderColor     = "#2d2948"
 myFocusedBorderColor    = "#6d0569"
 
-myFont      = "xft:Hack 9"
+myFont      = "xft:Hack:size=9"
 
 myPromptTheme = def
     { font                  = myFont
@@ -117,6 +116,7 @@ hotPromptTheme = myPromptTheme
     }
 
 tabConfig = def {
+    fontName = myFont,
     activeBorderColor = myFocusedBorderColor,
     activeTextColor = "#fcf4fa",
     activeColor = "#221530",
@@ -166,7 +166,7 @@ myKeys conf = let
     , ("M-S-<F4>" , addName "Quit XMonad"                  $ confirmPrompt hotPromptTheme "Quit XMonad" $ io (exitWith ExitSuccess))
     , ("M-M1-v", addName "Lock"                 $ spawn "systemctl suspend")
     , ("M-S-x", addName "Xrandr"                 $ spawn "~/.dotfiles/bin/rofi-xrandr")
-    , ("M-S-l", addName "Lock"                 $ spawn "physlock")
+    , ("M-S-l", addName "Lock"                 $ spawn "xtrlock -b")
     , ("<XF86MonBrightnessUp>", addName "Brightness up" $ spawn "light -A 5")
     , ("<XF86MonBrightnessDown>", addName "Brightness down" $ spawn "light -U 5")
     , ("<XF86AudioRaiseVolume>", addName "Volume up" $ spawn "amixer -q set Master 5%+")
@@ -201,9 +201,11 @@ myStartupHook = do
     spawnOnce "compton"
     spawnOnce "redshift-gtk"
     spawnOnce "nm-applet"
-    spawn "dunst -config ~/.config/i3/dunstrc"
-    spawn "nitrogen --restore"
-    spawn "/usr/lib/gsd-xsettings"
+    spawnOnce "google-chrome-stable"
+    spawnOnce "slack"
+    spawnOnce "dunst -config ~/.config/i3/dunstrc"
+    spawnOnce "nitrogen --restore"
+    -- spawn "/usr/lib/gsd-xsettings"
     spawn myStatusBar
     setDefaultCursor xC_left_ptr
 
@@ -224,6 +226,7 @@ myManageHook =
             , className =? "google-chrome" --> doShift (wsBrowser)
             , className =? "Google-chrome" --> doShift (wsBrowser)
             , className =? "Slack" --> doShift (wsSocial)
+            , className =? "discord" --> doShift (wsSocial)
             , className =? "Mumble" --> doShift (wsSocial)
             , className =? "Shutter" --> doFloat
              ]
@@ -232,5 +235,5 @@ myManageHook =
 -- X Event Actions
 ---------------------------------------------------------------------------
 
-myHandleEventHook = handleEventHook defaultConfig
-                <+> XMonad.Layout.Fullscreen.fullscreenEventHook
+myHandleEventHook = def
+                <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
