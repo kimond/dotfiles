@@ -8,6 +8,12 @@ fi
 export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 
 # Add paths
+if [[ -d "$HOME/bin" ]]; then
+	export PATH=$PATH:"$HOME/bin"
+fi
+if [[ -d "$HOME/.local/bin" ]]; then
+	export PATH=$PATH:"$HOME/.local/bin"
+fi
 if [[ -d "$HOME/.dotfiles/bin" ]]; then
 	export PATH=$PATH:"$HOME/.dotfiles/bin"
 fi

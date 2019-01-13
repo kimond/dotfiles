@@ -184,6 +184,7 @@ myKeys conf = let
 
     subKeys "Launchers"
     [ ("M-d", addName "Launcher" $ spawn myLauncher)
+    , ("M-g", addName "Calculator" $ spawn "galculator")
     , ("M-<F2>" , addName "Run Launcher" $ spawn myRunLauncher)
     , ("M1-<Tab>" , addName "Rofi window" $ spawn "rofi -show window")
     , ("M-<Return>" , addName "Terminal" $ spawn myTerminal)
@@ -221,6 +222,7 @@ myManageHook =
     where
         manageAll = composeAll
             [ className =? "jetbrains-idea" --> doShift (wsDev)
+            , className =? "code-oss" --> doShift (wsDev)
             , className =? "FireFox" --> doShift (wsBrowser)
             , className =? "Chrome" --> doShift (wsBrowser)
             , className =? "google-chrome" --> doShift (wsBrowser)
