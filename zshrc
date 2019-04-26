@@ -41,6 +41,9 @@ fi
 if [[ -d "$HOME/.anaconda3" ]]; then
     export PATH=$PATH:"$HOME/.anaconda3/bin"
 fi
+if [[ -d "$HOME/.poetry/bin" ]]; then
+	export PATH=$PATH:"$HOME/.poetry/bin"
+fi
 
 # Cuda
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64"
@@ -101,3 +104,18 @@ if [ -f "$HOME/local/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/local/
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/local/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/local/google-cloud-sdk/completion.zsh.inc"; fi
+
+if [ $commands[kubectl] ]; then
+      source <(kubectl completion zsh)
+fi
+
+# Import colorscheme from wal
+ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$) | grep -v 'idea' &> /dev/null
+if [ $? -eq 0 ]; then
+	if [[ -f ~/.cache/wal/sequences ]]; then
+		(cat ~/.cache/wal/sequences &)
+	fi
+	if [[ -f ~/.cache/wal/colors-tty.sh ]]; then
+		source ~/.cache/wal/colors-tty.sh
+	fi
+fi

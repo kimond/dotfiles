@@ -23,6 +23,8 @@ config_files="
     i3
     compton.conf
     rofi
+    termite
+    wal
     "
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"

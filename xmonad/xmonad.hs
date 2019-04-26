@@ -69,7 +69,7 @@ myWorkspaces = [wsDev, wsBrowser, wsSocial, wsMusic, wsFile, wsMisc, wsGame, wsM
 -- Applications
 ----------------
 
-myTerminal = "xfce4-terminal"
+myTerminal = "termite"
 myBrowser = "google-chrome-stable"
 myBrowserClass      = "Google-chrome-stable"
 myStatusBar = "~/.xmonad/polybar-launch.sh"
@@ -130,6 +130,7 @@ tabConfig = def {
 ----------
 
 myLayoutHook = avoidStruts 
+    $ spacingRaw True (Border 0 5 5 5) True (Border 5 5 5 5) True
     $ mouseResizableTile{draggerType = BordersDragger} ||| (
                 tabbed shrinkText tabConfig |||
                 Full
@@ -190,6 +191,7 @@ myKeys conf = let
     , ("M-<Return>" , addName "Terminal" $ spawn myTerminal)
     , ("M-S-n", addName "Nautilus" $ spawn "nautilus")
     , ("<Print>", addName "Screenshot" $ spawn "flameshot full -p ~/Pictures/screenshots")
+    , ("S-<Print>", addName "Screenshot selection" $ spawn "flameshot gui -p ~/Pictures/screenshots")
     , ("C-<Print>", addName "Screenshot selection" $ spawn "flameshot gui -p ~/Pictures/screenshots")
     ]
 
@@ -204,8 +206,8 @@ myStartupHook = do
     spawnOnce "nm-applet"
     spawnOnce "google-chrome-stable"
     spawnOnce "slack"
-    spawnOnce "dunst -config ~/.config/i3/dunstrc"
-    spawnOnce "nitrogen --restore"
+    spawnOnce "dunst -config ~/.config/dunst/dunstrc"
+    spawnOnce "wal -R"
     -- spawn "/usr/lib/gsd-xsettings"
     spawn myStatusBar
     setDefaultCursor xC_left_ptr

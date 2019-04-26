@@ -7,7 +7,7 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1 and bar2
-MONITOR=eDP-1 polybar mybar -c ~/.xmonad/polybar.conf &
-MONITOR=HDMI-2 polybar mybar -c ~/.xmonad/polybar.conf &
+MONITOR=eDP1 polybar mybar -c ~/.xmonad/polybar.conf &
+MONITOR=HDMI2 polybar mybartwo -c ~/.xmonad/polybar.conf &
 
 echo "Bars launched..."
