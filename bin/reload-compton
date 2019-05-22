@@ -1,0 +1,2 @@
+pkill compton
+compton &

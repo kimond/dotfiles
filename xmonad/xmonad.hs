@@ -16,8 +16,9 @@ import XMonad.Layout.Decoration
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing                -- this makes smart space around windows
-import XMonad.Layout.ToggleLayouts          -- Full window at any time
 import XMonad.Layout.Tabbed
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.MouseResizableTile -- Mouse resize
 
 import XMonad.Prompt                        -- to get my old key bindings working
@@ -129,7 +130,9 @@ tabConfig = def {
 -- Layout
 ----------
 
-myLayoutHook = avoidStruts 
+myLayoutHook =
+    mkToggle (single NBFULL)
+    $ avoidStruts 
     $ spacingRaw True (Border 0 5 5 5) True (Border 5 5 5 5) True
     $ mouseResizableTile{draggerType = BordersDragger} ||| (
                 tabbed shrinkText tabConfig |||
@@ -177,11 +180,17 @@ myKeys conf = let
 
     subKeys "Windows, Workspaces & Screens"
     (
-    [ ("M-S-q"          , addName "Kill"         kill) ]
+    [ ("M-S-q"          , addName "Kill"         kill)
+    ,("M-<Tab>", addName "Nothing" $ return ())]
     ++ zipM' "M-"     "Navigate window"          arrowKeys dirs windowGo True
     ++ zipM' "M-S-"   "Move window"              arrowKeys dirs windowSwap True
     ++ zipM' "M-C-"   "Swap workspace to screen" arrowKeys dirs screenSwap True
     ) ^++^
+
+    subKeys "Layout"
+    [ ("M-S-f"          , addName "ToggleStruts" $  sendMessage ToggleStruts)
+    , ("M-f"          , addName "Toggle fullscreen" $ sendMessage $  Toggle NBFULL)
+    ] ^++^
 
     subKeys "Launchers"
     [ ("M-d", addName "Launcher" $ spawn myLauncher)
