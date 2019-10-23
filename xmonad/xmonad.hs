@@ -234,6 +234,7 @@ myManageHook =
         manageAll = composeAll
             [ className =? "jetbrains-idea" --> doShift (wsDev)
             , className =? "code-oss" --> doShift (wsDev)
+            , className =? "Polybar" --> doIgnore
             , className =? "FireFox" --> doShift (wsBrowser)
             , className =? "Chrome" --> doShift (wsBrowser)
             , className =? "google-chrome" --> doShift (wsBrowser)
@@ -242,6 +243,8 @@ myManageHook =
             , className =? "discord" --> doShift (wsSocial)
             , className =? "Mumble" --> doShift (wsSocial)
             , className =? "Shutter" --> doFloat
+            , className =? "MTG-Arena-Tool" --> doFloat
+            , className =? "Tandem" --> doFloat
              ]
 
 ---------------------------------------------------------------------------
