@@ -37,7 +37,7 @@ main = do
         $ myConfig
 
 myConfig = def
-    { borderWidth = border
+    { borderWidth = myBorderWidth
     , normalBorderColor = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     , modMask     = myModMask
@@ -90,7 +90,7 @@ violet  = "#6c71c4"
 blue    = "#268bd2"
 
 -- sizes
-border = 1
+myBorderWidth = 1
 prompt = 20
 
 myNormalBorderColor     = "#2d2948"
