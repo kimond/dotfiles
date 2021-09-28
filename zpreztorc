@@ -25,4 +25,3 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 
 # %v - virtualenv name.
 zstyle ':prezto:module:python:info:virtualenv' format 'virtualenv:%v'
-

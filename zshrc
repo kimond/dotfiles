@@ -3,6 +3,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# pyenv
+eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+
 
 # User configuration
 export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
@@ -71,19 +75,6 @@ alias dkc="docker-compose"
 # 256 color terminal
 export TERM="screen-256color"
 
-# Virtualenvwrapper config
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
-
-# pyenv
-export PATH="/home/kdesrosiers/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# For the apt installtion of virtualenvwrapper
-[ -f /etc/bash_completion.d/virtualenvwrapper ] && source /etc/bash_completion.d/virtualenvwrapper
-
 # Source shellder theme
 source ~/.dotfiles/zsh/shellder.zsh-theme
 
@@ -99,18 +90,12 @@ if [[ -d "/opt/android-sdk" ]]; then
 	export ANDROID_HOME="/opt/android-sdk"
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/local/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/local/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/local/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/local/google-cloud-sdk/completion.zsh.inc"; fi
-
 if [ $commands[kubectl] ]; then
       source <(kubectl completion zsh)
 fi
 
 # Import colorscheme from wal
-ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$) | grep -v 'idea' &> /dev/null
+ps -o 'command=' -p $(ps -o 'ppid=' -p $$) | grep -v 'idea' &> /dev/null
 if [ $? -eq 0 ]; then
 	if [[ -f ~/.cache/wal/sequences ]]; then
 		(cat ~/.cache/wal/sequences &)
@@ -119,3 +104,29 @@ if [ $? -eq 0 ]; then
 		source ~/.cache/wal/colors-tty.sh
 	fi
 fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
+
+
+export PATH=/Users/kdesrosiers/.local/bin:$PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kdesrosiers/.local/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kdesrosiers/.local/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kdesrosiers/.local/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kdesrosiers/.local/google-cloud-sdk/completion.zsh.inc'; fi
+
+# TEMP I GUESS
+export PATH="/usr/local/opt/node@14/bin:$PATH"
