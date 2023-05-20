@@ -7,3 +7,5 @@
 	name = Kim Desrosiers
 [push]
     default = simple
+[pull]
+    rebase = false
