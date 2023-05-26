@@ -34,6 +34,7 @@ main = do
         $ addDescrKeys ((myModMask, xK_F1), showKeybindings) myKeys
         $ docks
         $ ewmh
+        $ ewmhFullscreen
         $ myConfig
 
 myConfig = def
@@ -42,7 +43,7 @@ myConfig = def
     , focusedBorderColor = myFocusedBorderColor
     , modMask     = myModMask
     , manageHook = myManageHook
-    , handleEventHook = myHandleEventHook
+    -- , handleEventHook = myHandleEventHook
     , layoutHook = myLayoutHook
     , startupHook = myStartupHook
     , terminal = myTerminal
@@ -70,7 +71,7 @@ myWorkspaces = [wsDev, wsBrowser, wsSocial, wsMusic, wsFile, wsMisc, wsGame, wsM
 -- Applications
 ----------------
 
-myTerminal = "termite"
+myTerminal = "alacritty"
 myBrowser = "google-chrome-stable"
 myBrowserClass      = "Google-chrome-stable"
 myStatusBar = "~/.xmonad/polybar-launch.sh"
@@ -210,7 +211,7 @@ myKeys conf = let
 
 myStartupHook = do
     setWMName "LG3D"
-    spawnOnce "compton"
+    spawnOnce "picom"
     spawnOnce "redshift-gtk"
     spawnOnce "nm-applet"
     spawnOnce "google-chrome-stable"
@@ -251,5 +252,5 @@ myManageHook =
 -- X Event Actions
 ---------------------------------------------------------------------------
 
-myHandleEventHook = def
-                <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
+-- myHandleEventHook = def
+--                 <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook

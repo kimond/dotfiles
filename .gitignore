@@ -21,3 +21,4 @@ xmonad/*.hi
 xmonad/*.errors
 xmonad/prompt-history
 xmonad/xmonad-x86_64-linux
+xmonad/build-x86_64-linux

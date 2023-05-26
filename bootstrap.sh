@@ -21,7 +21,7 @@ config_files="
     fish
     nvim
     i3
-    compton.conf
+    picom.conf
     rofi
     termite
     wal

@@ -1,2 +1,2 @@
-pkill compton
-compton &
+pkill picom
+picom &

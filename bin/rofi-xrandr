@@ -1,7 +1,7 @@
 #!/bin/bash
 # logout dialog
 
-cmd=$(echo -e "Single\nDouble\nTriple" | rofi -width 350 -dmenu -p system:)
+cmd=$(echo -e "Single\nDouble\nTriple\nLaptop" | rofi -width 350 -dmenu -p system:)
 case $cmd in
     Single)
         xrandr --output HDMI2 --auto --off
@@ -10,6 +10,9 @@ case $cmd in
         xrandr --output HDMI2 --auto --right-of eDP1
         ;;
     Triple)
-        echo "test"
+        ~/.screenlayout/mainsetup.sh
+        ;;
+    Laptop)
+        ~/.screenlayout/laptoponly.sh
         ;;
 esac

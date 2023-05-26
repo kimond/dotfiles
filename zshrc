@@ -107,8 +107,9 @@ fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh 
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh 
 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
