@@ -1,16 +1,10 @@
 #!/bin/bash
-# logout dialog
+# xrandr dialog
 
-cmd=$(echo -e "Single\nDouble\nTriple\nLaptop" | rofi -width 350 -dmenu -p system:)
+cmd=$(echo -e "Triple\nLaptop" | rofi -width 350 -dmenu -p system:)
 case $cmd in
-    Single)
-        xrandr --output HDMI2 --auto --off
-        ;;
-    Double)
-        xrandr --output HDMI2 --auto --right-of eDP1
-        ;;
     Triple)
-        ~/.screenlayout/mainsetup.sh
+        ~/.screenlayout/mainsetup.sh && wal -R
         ;;
     Laptop)
         ~/.screenlayout/laptoponly.sh

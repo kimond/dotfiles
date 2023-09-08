@@ -25,6 +25,7 @@ config_files="
     rofi
     termite
     wal
+    spaceship.zsh
     "
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"

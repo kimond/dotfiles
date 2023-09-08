@@ -76,7 +76,7 @@ alias dkc="docker-compose"
 export TERM="screen-256color"
 
 # Source shellder theme
-source ~/.dotfiles/zsh/shellder.zsh-theme
+source ~/.dotfiles/zsh/spaceship/spaceship.zsh-theme
 
 # DART OPTIONS
 export PATH=$PATH:~/.pub-cache/bin
@@ -132,7 +132,17 @@ export PATH="/usr/local/opt/node@16/bin:$PATH"
 # source <(ng completion script)
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kdesrosiers/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kdesrosiers/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/kdesrosiers/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kdesrosiers/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/kdesrosiers/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kdesrosiers/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/kdesrosiers/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kdesrosiers/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Terraform alias
+alias tpw='terraform plan -var-file=variables/$(terraform workspace show).tfvars'
+alias taw='terraform apply -var-file=variables/$(terraform workspace show).tfvars'
+alias trw='terraform refresh -var-file=variables/$(terraform workspace show).tfvars'
+alias tdw='terraform destroy -var-file=variables/$(terraform workspace show).tfvars'
+alias tcw='terraform console -var-file=variables/$(terraform workspace show).tfvars'
+
+#Utils
+alias xmonadedit='vim /home/kdesrosiers/.xmonad/xmonad.hs'

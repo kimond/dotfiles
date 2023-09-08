@@ -71,7 +71,7 @@ myWorkspaces = [wsDev, wsBrowser, wsSocial, wsMusic, wsFile, wsMisc, wsGame, wsM
 -- Applications
 ----------------
 
-myTerminal = "alacritty"
+myTerminal = "wezterm"
 myBrowser = "google-chrome-stable"
 myBrowserClass      = "Google-chrome-stable"
 myStatusBar = "~/.xmonad/polybar-launch.sh"
@@ -177,6 +177,9 @@ myKeys conf = let
     , ("<XF86AudioRaiseVolume>", addName "Volume up" $ spawn "amixer -q set Master 5%+")
     , ("<XF86AudioLowerVolume>", addName "Volume down" $ spawn "amixer -q set Master 5%-")
     , ("<XF86AudioMute>", addName "Volume down" $ spawn "amixer -q set Master toggle")
+    , ("M-p", addName "Spotify Play/Pause" $ spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
+    , ("M-[", addName "Spotify Previous" $ spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
+    , ("M-]", addName "Spotify Next" $ spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
     ] ^++^
 
     subKeys "Windows, Workspaces & Screens"
@@ -189,8 +192,9 @@ myKeys conf = let
     ) ^++^
 
     subKeys "Layout"
-    [ ("M-S-f"          , addName "ToggleStruts" $  sendMessage ToggleStruts)
+    [ ("M-S-f"        , addName "ToggleStruts" $  sendMessage ToggleStruts)
     , ("M-f"          , addName "Toggle fullscreen" $ sendMessage $  Toggle NBFULL)
+    , ("M-S-<Return>" , addName "Swap Master" $ windows $ W.swapMaster)
     ] ^++^
 
     subKeys "Launchers"
@@ -202,7 +206,7 @@ myKeys conf = let
     , ("M-S-n", addName "Nautilus" $ spawn "nautilus")
     , ("<Print>", addName "Screenshot" $ spawn "flameshot full -p ~/Pictures/screenshots")
     , ("S-<Print>", addName "Screenshot selection" $ spawn "flameshot gui -p ~/Pictures/screenshots")
-    , ("C-<Print>", addName "Screenshot selection" $ spawn "flameshot gui -p ~/Pictures/screenshots")
+    , ("C-<Print>", addName "Screenshot selection" $ spawn "flameshot gui --clipboard")
     ]
 
 ------------------------------------------------------------------------}}}
@@ -216,10 +220,12 @@ myStartupHook = do
     spawnOnce "nm-applet"
     spawnOnce "google-chrome-stable"
     spawnOnce "slack"
-    spawnOnce "dunst -config ~/.config/dunst/dunstrc"
+    spawnOnce "spotify"
+    spawnOnce "dunst -config ~/.cache/wal/dunstrc"
     spawnOnce "wal -R"
-    -- spawn "/usr/lib/gsd-xsettings"
+    spawnOnce "/usr/lib/gsd-xsettings"
     spawn myStatusBar
+    -- spawn "xmodmap ~/.Xmodmap"
     setDefaultCursor xC_left_ptr
 
 --------------
@@ -238,11 +244,12 @@ myManageHook =
             , className =? "Polybar" --> doIgnore
             , className =? "FireFox" --> doShift (wsBrowser)
             , className =? "Chrome" --> doShift (wsBrowser)
-            , className =? "google-chrome" --> doShift (wsBrowser)
-            , className =? "Google-chrome" --> doShift (wsBrowser)
+            , className =? "google-chrome" --> doShift (wsDev)
+            , className =? "Google-chrome" --> doShift (wsDev)
             , className =? "Slack" --> doShift (wsSocial)
             , className =? "discord" --> doShift (wsSocial)
             , className =? "Mumble" --> doShift (wsSocial)
+            , className =? "Spotify" --> doShift (wsMusic)
             , className =? "Shutter" --> doFloat
             , className =? "MTG-Arena-Tool" --> doFloat
             , className =? "Tandem" --> doFloat
