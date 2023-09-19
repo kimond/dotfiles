@@ -14,6 +14,7 @@ files="
     gitignore_global
     zpreztorc
     xmonad
+    p10k.zsh
     "
 
 # Config dirs list
@@ -25,7 +26,6 @@ config_files="
     rofi
     termite
     wal
-    spaceship.zsh
     "
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"

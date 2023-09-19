@@ -1,6 +1,0 @@
-#display username always
-SPACESHIP_USER_SHOW=always
-
-SPACESHIP_DOCKER_SHOW=false
-
-#SPACESHIP_ASYNC_SHOW_COUNT=true

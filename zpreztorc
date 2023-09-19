@@ -12,7 +12,9 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'history-substring-search' \
   'autosuggestions' \
-  # 'prompt' \
+  'prompt' \
+
+zstyle :prezto:module:prompt theme powerlevel10k
 
 
 zstyle ':prezto:*:*' color 'yes'
