@@ -145,6 +145,7 @@ if [ -f '/home/kdesrosiers/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kdesr
 if [ -f '/home/kdesrosiers/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kdesrosiers/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Terraform alias
+alias tws='terraform workspace select'
 alias tpw='terraform plan -var-file=variables/$(terraform workspace show).tfvars'
 alias taw='terraform apply -var-file=variables/$(terraform workspace show).tfvars'
 alias trw='terraform refresh -var-file=variables/$(terraform workspace show).tfvars'
@@ -156,3 +157,4 @@ alias xmonadedit='vim /home/kdesrosiers/.xmonad/xmonad.hs'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
