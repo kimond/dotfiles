@@ -56,6 +56,11 @@ if [[ -d "$HOME/.poetry/bin" ]]; then
 	export PATH=$PATH:"$HOME/.poetry/bin"
 fi
 
+if [[ -d "$HOME/.fly" ]]; then
+  export FLYCTL_INSTALL="$HOME/.fly"
+  export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fi
+
 # Cuda
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64"
 export CUDA_HOME=/opt/cuda/
