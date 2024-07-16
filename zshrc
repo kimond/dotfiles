@@ -143,12 +143,6 @@ export PATH="/usr/local/opt/node@16/bin:$PATH"
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/kdesrosiers/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kdesrosiers/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/kdesrosiers/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kdesrosiers/google-cloud-sdk/completion.zsh.inc'; fi
-
 # Terraform alias
 alias tws='terraform workspace select'
 alias tpw='terraform plan -var-file=variables/$(terraform workspace show).tfvars'
@@ -163,3 +157,11 @@ alias xmonadedit='vim /home/kdesrosiers/.xmonad/xmonad.hs'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/kdesrosiers/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kdesrosiers/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/kdesrosiers/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kdesrosiers/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval "$(zoxide init zsh)"
