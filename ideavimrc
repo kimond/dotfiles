@@ -11,6 +11,8 @@
 map <space> <Nop>
 let mapleader = " "
 
+set notimeout
+
 "" Base Settings
 "" =============
 set incsearch
@@ -26,6 +28,7 @@ map Q gq
 "" Plugin Settings
 "" ===============
 set nerdtree
+set which-key
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
@@ -40,7 +43,12 @@ Plug 'tpope/vim-commentary'
 
 :map <leader>e :NERDTreeToggle<CR>
 
+let g:WhichKeyDesc_buffers        = "<leader>b  Buffers"
 :map <leader>bd <Action>(CloseContent)
+:map <leader>bo <Action>(CloseAllEditorsButActive)
+:map <leader>bp <Action>(PinActiveEditorTab)
+:map <leader>bP <Action>(CloseAllUnpinnedEditors)
+
 :map [b <Action>(PreviousTab)
 :map ]b <Action>(NextTab)
 :map <S-h> <Action>(PreviousTab)
@@ -52,18 +60,24 @@ Plug 'tpope/vim-commentary'
 :map <leader><bar> <Action>(SplitVertically)
 :map <leader>- <Action>(SplitHorizontally)
 
+let g:WhichKeyDesc_test        = "<leader>t  Test/Run"
 :map <leader>tr <Action>(RunClass)
 :map <leader>tl <Action>(Rerun)
 :map <leader>tS <Action>(Stop)
 
+let g:WhichKeyDesc_code        = "<leader>c  Code"
 :map <leader>cr <Action>(RenameElement)
 :map <leader>cf <Action>(ReformatCode)
 :map <leader>ca <Action>(ShowIntentionActions)
 
+
+let g:WhichKeyDesc_files        = "<leader>f  Files"
 :map <leader>ff <Action>(GotoFile)
+:map <leader>fr <Action>(RecentFiles)
+
+let g:WhichKeyDesc_search        = "<leader>s  Search"
 :map <leader>sg <Action>(TextSearchAction)
 :map <leader>ss <Action>(GotoSymbol)
-:map <leader>fr <Action>(RecentFiles)
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
@@ -72,4 +86,10 @@ Plug 'tpope/vim-commentary'
 "" Map <leader>d to start debug
 "map <leader>d <Action>(Debug)
 
+let g:WhichKeyDesc_debug        = "<leader>d  Debug"
 :map <leader>db <Action>(ToggleLineBreakpoint)
+
+let g:WhichKeyDesc_git        = "<leader>g  Git"
+let g:WhichKeyDesc_git_hunk        = "<leader>gh  Git hunk"
+:map <leader>ghr <Action>(Vcs.RollbackChangedLines)
+:map <leader>ghR <Action>(ChangesView.Revert)
