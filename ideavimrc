@@ -90,6 +90,7 @@ let g:WhichKeyDesc_debug        = "<leader>d  Debug"
 :map <leader>db <Action>(ToggleLineBreakpoint)
 
 let g:WhichKeyDesc_git        = "<leader>g  Git"
+:map <leader>gf <Action>(Vcs.ShowTabbedFileHistory)
 let g:WhichKeyDesc_git_hunk        = "<leader>gh  Git hunk"
 :map <leader>ghr <Action>(Vcs.RollbackChangedLines)
 :map <leader>ghR <Action>(ChangesView.Revert)
