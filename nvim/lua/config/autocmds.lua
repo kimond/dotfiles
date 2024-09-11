@@ -5,9 +5,6 @@
 vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
   pattern = { "*" },
   callback = function()
-    vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "LspReferenceText" })
-    vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "LspReferenceWrite" })
-    vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "LspReferenceRead" })
     vim.api.nvim_set_hl(0, "LspReferenceRead", { underline = true })
     vim.api.nvim_set_hl(0, "LspReferenceWrite", { underline = true })
     vim.api.nvim_set_hl(0, "LspReferenceText", { underline = true })
