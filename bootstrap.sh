@@ -1,6 +1,20 @@
 #!/bin/bash
 # Variables
 
+backup=false
+tmux=false
+fisherman=false
+
+for ARGS in "$@"; do
+  shift
+  case "$ARGS" in
+  "-backup") backup=true ;;
+  "-tmux") tmux=true ;;
+  "-fisherman") fisherman=true ;;
+  *) set -- "$@" "$ARGS" ;;
+  esac
+done
+
 dir=$HOME/.dotfiles        # dotfiles directory
 olddir=$HOME/.dotfiles_old # old dotfiles backup directory
 
@@ -27,29 +41,32 @@ config_files="
     rofi
     termite
     wal
+    zellij
     "
-# create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...done"
 
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
+if [ $backup == true ]; then
+  # create dotfiles_old in homedir
+  echo "Creating $olddir for backup of any existing dotfiles in ~"
+  mkdir -p $olddir
+  echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory
-echo "Moving any existing dotfiles from ~ to $olddir"
-for file in $files; do
-  if [ ! -L ~/.$file ]; then
-    mv ~/.$file $olddir
+  # change to the dotfiles directory
+  echo "Changing to the $dir directory"
+  cd $dir
+  echo "...done"
+
+  # move any existing dotfiles in homedir to dotfiles_old directory
+  echo "Moving any existing dotfiles from ~ to $olddir"
+  for file in $files; do
+    if [ ! -L ~/.$file ]; then
+      mv ~/.$file $olddir
+    fi
+  done
+  # check if .dotfiles_old is empty
+  if [ ! "$(ls -A $olddir)" ]; then
+    echo "Delete $olddir because it is empty"
+    rm -r $olddir
   fi
-done
-
-# check if .dotfiles_old is empty
-if [ ! "$(ls -A $olddir)" ]; then
-  echo "Delete $olddir because it is empty"
-  rm -r $olddir
 fi
 
 # Create config dir symlinks
@@ -67,13 +84,15 @@ for config_file in $config_files; do
   fi
 done
 
-echo "Install fisherman if needed"
-if [ ! -d "$HOME/.config/fisherman" ]; then
-  git clone https://github.com/fisherman/fisherman $HOME/.config/fisherman
-  cd $HOME/.config/fisherman
-  make
-else
-  echo "Fisherman is already installed"
+if [ $fisherman == true ]; then
+  echo "Install fisherman if needed"
+  if [ ! -d "$HOME/.config/fisherman" ]; then
+    git clone https://github.com/fisherman/fisherman $HOME/.config/fisherman
+    cd $HOME/.config/fisherman
+    make
+  else
+    echo "Fisherman is already installed"
+  fi
 fi
 
 echo "Install Prezto if needed"
@@ -96,15 +115,17 @@ done
 echo "Source .zshrc file"
 zsh $HOME/.zshrc
 
-echo "Configuring TMUX"
-if [ ! -d "$HOME/.tmux/plugins" ]; then
-  mkdir -p ~/.tmux/plugins
+if [ $tmux == true ]; then
+  echo "Configuring TMUX"
+  if [ ! -d "$HOME/.tmux/plugins" ]; then
+    mkdir -p ~/.tmux/plugins
+  fi
+  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    echo "Cloning tmux plugin manager"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
+  echo "Install tmux plugings"
+  tmux start-server
+  tmux new-session -d
+  ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 fi
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-  echo "Cloning tmux plugin manager"
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-echo "Install tmux plugings"
-tmux start-server
-tmux new-session -d
-~/.tmux/plugins/tpm/scripts/install_plugins.sh
