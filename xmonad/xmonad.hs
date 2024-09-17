@@ -71,7 +71,7 @@ myWorkspaces = [wsDev, wsBrowser, wsSocial, wsMusic, wsFile, wsMisc, wsGame, wsM
 -- Applications
 ----------------
 
-myTerminal = "wezterm"
+myTerminal = "kitty"
 myBrowser = "google-chrome-stable"
 myBrowserClass      = "Google-chrome-stable"
 myStatusBar = "~/.xmonad/polybar-launch.sh"

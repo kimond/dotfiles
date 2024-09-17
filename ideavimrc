@@ -71,6 +71,7 @@ let g:WhichKeyDesc_code        = "<leader>c  Code"
 :map <leader>ca <Action>(ShowIntentionActions)
 
 
+:map <leader><space> <Action>(GotoFile)
 let g:WhichKeyDesc_files        = "<leader>f  Files"
 :map <leader>ff <Action>(GotoFile)
 :map <leader>fr <Action>(RecentFiles)
