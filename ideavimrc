@@ -56,6 +56,13 @@ Plug 'tpope/vim-commentary'
 
 :map <leader>e :NERDTreeToggle<CR>
 
+
+" vim surround
+set surround
+let g:surround_no_mappings = 1
+nmap gsd <Plug>DSurround
+nmap gsr <Plug>CSurround
+
 let g:WhichKeyDesc_buffers        = "<leader>b  Buffers"
 :map <leader>bd <Action>(CloseContent)
 :map <leader>bo <Action>(CloseAllEditorsButActive)
@@ -77,17 +84,26 @@ let g:WhichKeyDesc_test        = "<leader>t  Test/Run"
 :map <leader>tr <Action>(RunClass)
 :map <leader>tl <Action>(Rerun)
 :map <leader>tS <Action>(Stop)
+:map <leader>tt <Action>(RunTestGroup)
+:map <leader>tT <Action>(RunAllTests)
 
 let g:WhichKeyDesc_code        = "<leader>c  Code"
 :map <leader>cr <Action>(RenameElement)
 :map <leader>cf <Action>(ReformatCode)
 :map <leader>ca <Action>(ShowIntentionActions)
+:map <leader>cd <Action>(ShowErrorDescription)
 
+
+:map <leader>: :history<cr>
+:map <leader><space> <Action>(GotoFile)
+:map <leader>/ <Action>(FindInPath)
+:map <leader>,  <Action>(Switcher)
 
 let g:WhichKeyDesc_files        = "<leader>f  Files"
-:map <leader><space> <Action>(GotoFile)
 :map <leader>ff <Action>(GotoFile)
 :map <leader>fr <Action>(RecentFiles)
+:map <leader>ft <Action>(ActivateTerminalToolWindow)
+:map <leader>fb <Action>(Switcher)
 
 let g:WhichKeyDesc_search        = "<leader>s  Search"
 :map <leader>sg <Action>(TextSearchAction)
@@ -98,9 +114,22 @@ let g:WhichKeyDesc_debug        = "<leader>d  Debug"
 
 let g:WhichKeyDesc_git        = "<leader>g  Git"
 :map <leader>gf <Action>(Vcs.ShowTabbedFileHistory)
-let g:WhichKeyDesc_git_hunk        = "<leader>gh  Git hunk"
+et g:WhichKeyDesc_git_hunk        = "<leader>gh  Git hunk"
 :map <leader>ghr <Action>(Vcs.RollbackChangedLines)
 :map <leader>ghR <Action>(ChangesView.Revert)
+
+let g:WhichKeyDesc_trouble        = "<leader>x  Trouble"
+:map <leader>xx <Action>(ActivateProblemsViewToolWindow)
+
+let g:WhichKeyDesc_lazy        = "<leader>l Lazy"
+:map <leader>l <Action>(WelcomeScreen.Plugins)
+
+" LSP Keymaps
+:map gd <Action>(GotoDeclaration)
+:map gr <Action>(FindUsages)
+:map gI <Action>(GotoImplementation)
+:map gy <Action>(GotoTypeDeclaration)
+:map gK <Action>(ParameterInfo)
 
 " Pane navigation
 nnoremap <C-h> <C-w>h
