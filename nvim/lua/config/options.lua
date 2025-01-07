@@ -7,3 +7,11 @@ if vim.g.neovide then
   vim.g.neovide_cursor_vfx_mode = "railgun"
   vim.opt.termguicolors = true
 end
+
+vim.filetype.add({
+  extension = {
+    jinja = "jinja",
+    jinja2 = "jinja",
+    j2 = "jinja",
+  },
+})

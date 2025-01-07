@@ -42,6 +42,7 @@ config_files="
     termite
     wal
     zellij
+    ghostty
     "
 
 if [ $backup == true ]; then

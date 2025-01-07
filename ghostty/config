@@ -1,0 +1,24 @@
+theme = catppuccin-mocha
+font-family = "JetBrains Mono"
+font-size = 10
+gtk-titlebar = false
+
+# Keybindings
+
+keybind = ctrl+shift+;=toggle_tab_overview
+keybind = ctrl+shift+]=goto_split:next
+keybind = ctrl+shift+[=goto_split:previous
+keybind = super+ctrl+[=unbind
+keybind = super+ctrl+]=unbind
+keybind = super+ctrl+shift+equal=unbind
+keybind = super+ctrl+shift+up=unbind
+keybind = super+ctrl+shift+left=unbind
+keybind = super+ctrl+shift+down=unbind
+keybind = super+ctrl+shift+right=unbind
+keybind = alt+ctrl+shift+equal=equalize_splits
+keybind = alt+ctrl+shift+up=resize_split:up,20
+keybind = alt+ctrl+shift+left=resize_split:left,20
+keybind = alt+ctrl+shift+down=resize_split:down,20
+keybind = alt+ctrl+shift+right=resize_split:right,20
+keybind = ctrl+enter=unbind
+keybind = ctrl+tab=unbind
