@@ -43,6 +43,8 @@ config_files="
     wal
     zellij
     ghostty
+    hypr
+    waybar
     "
 
 if [ $backup == true ]; then

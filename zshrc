@@ -145,11 +145,11 @@ export PATH="/usr/local/opt/node@16/bin:$PATH"
 
 # Terraform alias
 alias tws='terraform workspace select'
-alias tpw='terraform plan -var-file=variables/$(terraform workspace show).tfvars'
-alias taw='terraform apply -var-file=variables/$(terraform workspace show).tfvars'
-alias trw='terraform refresh -var-file=variables/$(terraform workspace show).tfvars'
-alias tdw='terraform destroy -var-file=variables/$(terraform workspace show).tfvars'
-alias tcw='terraform console -var-file=variables/$(terraform workspace show).tfvars'
+alias tpw='terraform plan -var-file=./$(terraform workspace show).tfvars'
+alias taw='terraform apply -var-file=./$(terraform workspace show).tfvars'
+alias trw='terraform refresh -var-file=./$(terraform workspace show).tfvars'
+alias tdw='terraform destroy -var-file=./$(terraform workspace show).tfvars'
+alias tcw='terraform console -var-file=./$(terraform workspace show).tfvars'
 
 #Utils
 alias xmonadedit='vim /home/kdesrosiers/.xmonad/xmonad.hs'

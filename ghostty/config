@@ -2,6 +2,7 @@ theme = catppuccin-mocha
 font-family = "JetBrains Mono"
 font-size = 10
 gtk-titlebar = false
+adw-toolbar-style = flat
 
 # Keybindings
 
