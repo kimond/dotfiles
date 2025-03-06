@@ -8,10 +8,16 @@ if vim.g.neovide then
   vim.opt.termguicolors = true
 end
 
+vim.opt.relativenumber = false
+
 vim.filetype.add({
+  filename = {
+    ["Tiltfile"] = "bzl",
+  },
   extension = {
     jinja = "jinja",
     jinja2 = "jinja",
     j2 = "jinja",
+    tiltfile = "bzl",
   },
 })

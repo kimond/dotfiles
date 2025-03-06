@@ -1,0 +1,9 @@
+#!/bin/bash
+# Discord muter
+
+activeWindowClass=$(hyprctl -j activewindow | jq -r .class)
+hyprctl keyword cursor:no_warps true
+hyprctl -q dispatch focuswindow class:^\(discord\|vesktop\)$
+hyprctl -q dispatch sendshortcut CTRL SHIFT, M, activewindow
+hyprctl -q dispatch focuswindow class:$activeWindowClass
+hyprctl keyword cursor:no_warps false

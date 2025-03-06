@@ -91,7 +91,7 @@ violet  = "#6c71c4"
 blue    = "#268bd2"
 
 -- sizes
-myBorderWidth = 1
+myBorderWidth = 3
 prompt = 20
 
 myNormalBorderColor     = "#2d2948"
@@ -221,7 +221,7 @@ myStartupHook = do
     spawnOnce "google-chrome-stable"
     spawnOnce "slack"
     spawnOnce "spotify"
-    spawnOnce "dunst -config ~/.cache/wal/dunstrc"
+    spawnOnce "dunst -config ~/.config/dunst/dunstrc"
     spawnOnce "wal -R"
     spawnOnce "/usr/lib/gsd-xsettings"
     spawn myStatusBar

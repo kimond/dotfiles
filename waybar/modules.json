@@ -32,7 +32,7 @@
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
     "format-source": " {volume}%",
-    "format-source-muted": "",
+    "format-source-muted": " ",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -42,6 +42,12 @@
       "car": "",
       "default": ["", "", ""]
     },
+    "on-click": "pavucontrol"
+  },
+  "pulseaudio#source": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " ",
     "on-click": "pavucontrol"
   },
   "network": {
@@ -91,5 +97,20 @@
     "format": "{:%H:%M | %e %B} ",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 5
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
   }
 }

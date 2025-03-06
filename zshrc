@@ -107,15 +107,15 @@ if [ $commands[kubectl] ]; then
 fi
 
 # Import colorscheme from wal
-ps -o 'command=' -p $(ps -o 'ppid=' -p $$) | grep -v 'idea' &> /dev/null
-if [ $? -eq 0 ]; then
-	if [[ -f ~/.cache/wal/sequences ]]; then
-		(cat ~/.cache/wal/sequences &)
-	fi
-	if [[ -f ~/.cache/wal/colors-tty.sh ]]; then
-		source ~/.cache/wal/colors-tty.sh
-	fi
-fi
+# ps -o 'command=' -p $(ps -o 'ppid=' -p $$) | grep -v 'idea' &> /dev/null
+# if [ $? -eq 0 ]; then
+# 	if [[ -f ~/.cache/wal/sequences ]]; then
+# 		(cat ~/.cache/wal/sequences &)
+# 	fi
+# 	if [[ -f ~/.cache/wal/colors-tty.sh ]]; then
+# 		source ~/.cache/wal/colors-tty.sh
+# 	fi
+# fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

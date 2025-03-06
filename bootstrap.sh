@@ -45,6 +45,8 @@ config_files="
     ghostty
     hypr
     waybar
+    dunst
+    wlogout
     "
 
 if [ $backup == true ]; then
