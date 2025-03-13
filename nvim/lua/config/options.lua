@@ -21,3 +21,5 @@ vim.filetype.add({
     tiltfile = "bzl",
   },
 })
+
+vim.g.lazyvim_eslint_auto_format = false
