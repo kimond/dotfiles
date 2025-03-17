@@ -1,3 +1,7 @@
+require("conform").formatters.golines = {
+  args = { "-m", "120" },
+}
+
 vim.api.nvim_create_user_command("Golines", function()
   return require("conform").format({
     -- async means discarded if the file is modified before the formatting is done
