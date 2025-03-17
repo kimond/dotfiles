@@ -16,6 +16,12 @@ return {
     },
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = { "templ" },
+    },
+  },
+  {
     "mfussenegger/nvim-lint",
     optional = true,
     opts = {
