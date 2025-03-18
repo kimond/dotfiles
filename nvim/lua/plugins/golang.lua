@@ -26,12 +26,13 @@ return {
     },
   },
   {
-    "mfussenegger/nvim-lint",
+    "nvimtools/none-ls.nvim",
     optional = true,
-    opts = {
-      linters_by_ft = {
-        go = { "golangcilint" },
-      },
-    },
+    opts = function(_, opts)
+      local nls = require("null-ls")
+      opts.sources = vim.list_extend(opts.sources or {}, {
+        nls.builtins.diagnostics.golangci_lint,
+      })
+    end,
   },
 }
