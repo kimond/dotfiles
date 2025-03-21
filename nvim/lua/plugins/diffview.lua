@@ -38,5 +38,11 @@ return {
       end,
       desc = "Open diffs for current Branch",
     },
+    {
+      "<leader>gf",
+      ":DiffviewFileHistory<CR>",
+      mode = "v",
+      desc = "Open diffs for selection",
+    },
   },
 }
