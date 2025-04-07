@@ -4,12 +4,12 @@
 cmd=$(echo -e "Triple\nTripleBackup\nLaptop" | rofi -width 350 -dmenu -p system:)
 case $cmd in
 Triple)
-	~/.screenlayout/mainsetup.sh && wal -R
+	~/.screenlayout/mainsetup.sh && wal -R -s
 	;;
 TripleBackup)
-	~/.screenlayout/mainbackup.sh && wal -R
+	~/.screenlayout/mainbackup.sh && wal -R -s
 	;;
 Laptop)
-	~/.screenlayout/laptoponly.sh && wal -R
+	~/.screenlayout/laptoponly.sh && wal -R -s
 	;;
 esac
