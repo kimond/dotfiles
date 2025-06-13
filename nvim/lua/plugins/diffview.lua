@@ -11,14 +11,14 @@ return {
   command = "DiffviewOpen",
   keys = {
     {
-      "<leader>gd",
+      "<leader>gv",
       function()
         toggle_diffview("DiffviewOpen")
       end,
       desc = "Diff Index",
     },
     {
-      "<leader>gD",
+      "<leader>gV",
       function()
         toggle_diffview("DiffviewOpen master..HEAD")
       end,

@@ -222,7 +222,7 @@ myStartupHook = do
     spawnOnce "slack"
     spawnOnce "spotify"
     spawnOnce "dunst -config ~/.config/dunst/dunstrc"
-    spawnOnce "wal -R"
+    spawnOnce "wal -R -s"
     spawnOnce "/usr/lib/gsd-xsettings"
     spawn myStatusBar
     -- spawn "xmodmap ~/.Xmodmap"
