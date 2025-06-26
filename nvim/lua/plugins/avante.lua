@@ -26,10 +26,15 @@ return {
     version = false, -- Never set this value to "*"! Never!
     opts = {
       provider = "gemini",
+      mode = "legacy",
       providers = {
         gemini = {
           endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
           model = "gemini-2.5-pro-preview-03-25",
+          thinking = {
+            type = "disabled",
+          },
+          disable_tools = true,
         },
       },
       selector = {
