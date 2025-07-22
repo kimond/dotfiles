@@ -21,6 +21,7 @@
     "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.ui.edgy",
+    "lazyvim.plugins.extras.ui.treesitter-context",
     "lazyvim.plugins.extras.util.rest"
   ],
   "install_version": 7,

@@ -13,7 +13,7 @@ return {
   },
   keys = {
     {
-      "<leader>uB",
+      "<leader>uH",
       "<cmd>:Hardtime toggle<cr>",
       desc = "Toggle Hardtime",
     },

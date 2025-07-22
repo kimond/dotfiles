@@ -72,8 +72,8 @@ myWorkspaces = [wsDev, wsBrowser, wsSocial, wsMusic, wsFile, wsMisc, wsGame, wsM
 ----------------
 
 myTerminal = "kitty"
-myBrowser = "google-chrome-stable"
-myBrowserClass      = "Google-chrome-stable"
+myBrowser = "brave"
+myBrowserClass      = "brave"
 myStatusBar = "~/.xmonad/polybar-launch.sh"
 myRunLauncher = "rofi -show run"
 myLauncher = "rofi -show drun"
@@ -218,7 +218,7 @@ myStartupHook = do
     spawnOnce "picom"
     spawnOnce "redshift-gtk"
     spawnOnce "nm-applet"
-    spawnOnce "google-chrome-stable"
+    spawnOnce myBrowser
     spawnOnce "slack"
     spawnOnce "spotify"
     spawnOnce "dunst -config ~/.config/dunst/dunstrc"
@@ -246,6 +246,7 @@ myManageHook =
             , className =? "Chrome" --> doShift (wsBrowser)
             , className =? "google-chrome" --> doShift (wsDev)
             , className =? "Google-chrome" --> doShift (wsDev)
+            , className =? myBrowserClass --> doShift (wsDev)
             , className =? "Slack" --> doShift (wsSocial)
             , className =? "discord" --> doShift (wsSocial)
             , className =? "Mumble" --> doShift (wsSocial)

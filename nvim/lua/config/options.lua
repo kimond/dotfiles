@@ -10,16 +10,6 @@ end
 
 vim.opt.relativenumber = false
 
-vim.filetype.add({
-  filename = {
-    ["Tiltfile"] = "bzl",
-  },
-  extension = {
-    jinja = "jinja",
-    jinja2 = "jinja",
-    j2 = "jinja",
-    tiltfile = "bzl",
-  },
-})
-
 vim.g.lazyvim_eslint_auto_format = false
+
+vim.g.lazyvim_blink_main = true
