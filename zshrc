@@ -55,6 +55,9 @@ fi
 if [[ -d "$HOME/.poetry/bin" ]]; then
 	export PATH=$PATH:"$HOME/.poetry/bin"
 fi
+if [[ -d "$HOME/.bun/bin" ]]; then
+	export PATH=$PATH:"$HOME/.bun/bin"
+fi
 
 if [[ -d "$HOME/.fly" ]]; then
   export FLYCTL_INSTALL="$HOME/.fly"

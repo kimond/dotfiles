@@ -3,6 +3,7 @@ font-family = "JetBrains Mono"
 font-size = 10
 gtk-titlebar = false
 adw-toolbar-style = flat
+custom-shader = shaders/cursor_warp.glsl
 
 # Keybindings
 
